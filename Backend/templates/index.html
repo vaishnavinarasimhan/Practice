@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Upload Images</title>
+</head>
+<body id="body" style="text-align:center;">
+<p><h1>Django Uploading Images</h1></p>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+<!--   {{ form.as_p }}-->
+  <input type="file" name="images" multiple>
+  <button type="submit">Upload</button>
+</form>
+<!--{% if img_obj %}-->
+<!--  <h3>Succesfully uploaded : {{img_obj.title}}</h3>-->
+<!--  {% for i in img_obj %}-->
+<!--    <div>-->
+<!--      <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">-->
+<!--    </div>-->
+<!--  {% endfor %}-->
+<!--&lt;!&ndash;    <input required name="images" type="file" multiple class="form-control-file">&ndash;&gt;-->
+<!--{% endif %}-->
+<hr>
+{% for img in images %}
+<img src="{{img.images.url}}" alt="Image">
+{% endfor %}
+</body>
+</html>
